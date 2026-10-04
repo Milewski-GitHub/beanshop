@@ -5,8 +5,7 @@ test.describe('Koszyk', () => {
   test('licznik koszyka rosnie po dodaniu produktu', async ({ loggedInPage, catalog }) => {
     await catalog.goto();
     await catalog.addToCart('Etiopia Yirgacheffe');
-    await loggedInPage.waitForTimeout(500);
-    expect(await catalog.cartCount.textContent()).toBe('1');
+    await expect(catalog.cartCount).toHaveText('1');
   });
 
   test('pokazuje podsumowanie z dostawa', async ({ loggedInPage, api, cartPage }) => {
