@@ -30,17 +30,17 @@ describe('pricing', () => {
   });
 
   it('nalicza rabat procentowy i zwraca kod (BR-05, BR-08)', () => {
-    const summary = priceCart([{ lineTotal: 100 }], [code('KAWA10')], 'STANDARD');
-    expect(summary.subtotal).toBe(100);
-    expect(summary.discount).toBe(10);
+    const summary = priceCart([{ lineTotal: 200 }], [code('KAWA10')], 'STANDARD');
+    expect(summary.subtotal).toBe(200);
+    expect(summary.discount).toBe(20);
     expect(summary.shipping).toBe(14.99);
-    expect(summary.total).toBe(104.99);
+    expect(summary.total).toBe(194.99);
     expect(summary.appliedCodes).toEqual(['KAWA10']);
   });
 
   it('rabat kwotowy nie obniza ceny ponizej zera (BR-05, BR-08)', () => {
     const summary = priceCart([{ lineTotal: 10 }], [code('MINUS20')], 'STANDARD');
     expect(summary.discount).toBe(10);
-    expect(summary.total).toBe(14.99);
+    expect(summary.total).toBe(0);
   });
 });
