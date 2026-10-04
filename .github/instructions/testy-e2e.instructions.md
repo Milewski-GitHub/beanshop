@@ -10,3 +10,4 @@ applyTo: "tests/e2e/**"
 - Tylko asercje web-first (`await expect(locator).toHaveText(...)`). Zakaz `waitForTimeout` i `textContent()` + `toBe`.
 - Dane przygotowuj przez API (`page.request` lub `BeanShopApi`), a przez UI wykonuj tylko testowany krok.
 - Kwoty w UI mają format `1 234,56 zł` (przecinek, spacja przed zł).
+- Każdy test ma tag `@smoke` albo `@regression` w tytule.
