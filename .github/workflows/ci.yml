@@ -37,8 +37,7 @@ jobs:
           retention-days: 7
 
   mutation:
-    name: Testy mutacyjne (na żądanie)
-    if: github.event_name == 'workflow_dispatch'
+    name: Testy mutacyjne
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
